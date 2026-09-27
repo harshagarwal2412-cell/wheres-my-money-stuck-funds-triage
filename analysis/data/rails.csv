@@ -1,0 +1,8 @@
+rail_id,label,direction,sla_hours
+ACH_IN,US ACH in,in,72
+WIRE_IN,US wire in,in,24
+SEPA_IN,EUR SEPA in,in,24
+SPEI_IN,MXN SPEI in,in,1
+CRYPTO_IN,Crypto in,in,1
+BANK_OUT,Bank payout,out,48
+CASH_OUT,Cash pickup,out,24

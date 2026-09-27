@@ -1,0 +1,11 @@
+cause_id,precedence,label,owner,fix,metric
+RETURNED,1,Returned by bank,Customer,"Map each return code to a plain-language reason and a fix ('the account number doesn't exist, check the last 4 digits').",Repeat returns for the same customer within 7 days
+HOLD_SILENT,2,"Under review, customer not told",Compliance,"Opening a review automatically sends the customer a notice with what's needed and the expected timeline. Reviewer picks the reason from a list, not free text.",% of holds where the customer got a notice within 1 hour
+HOLD_DOC,3,Waiting on customer document,Customer,"In-app upload straight from the notice, with reminders at 24h and 72h. Show which document and why.",Median time from doc request to doc received
+DESYNC,4,"Arrived, not posted",Engineering,"Nightly + on-webhook check: every partner 'settled' event must have a ledger credit within 15 min, or it pages someone.",Count of settled-but-unposted items older than 15 min (target: 0)
+UNMATCHED,5,"Arrived, can't match to a customer",Ops,"Auto-match on amount + sender name + date window, and show the exact reference field on the deposit screen with a copy button.",% of inbound bank deposits auto-matched
+WRONG_NET,6,Crypto sent on the wrong network,Engineering,Show the network name next to every deposit address and warn on the known wrong-network pairs before the address is copied.,"Wrong-network deposits per 1,000 crypto deposits"
+MAINT,7,Sent into a rail under maintenance,Ops,Maintenance flag per rail blocks new transfers into it and shows a banner with an alternative. Items already in flight get a proactive message.,Transfers created on a rail while it was flagged (target: 0)
+LATE,8,"At partner, past SLA",Ops,"Auto-escalate to the partner at SLA + 25%, with the partner's reference attached. Track partner-level SLA hit rate.",Partner SLA hit rate by rail
+ON_TRACK,9,"On its way, within SLA",None yet,Nothing to fix. Show the customer the ETA so they don't open a ticket.,Tickets opened on items that were still within SLA
+UNKNOWN,10,No rule matched,Investigate,Manual look. Every one of these either becomes a new rule or shows a data gap.,Share of stuck items with no reason (target: under 2%)

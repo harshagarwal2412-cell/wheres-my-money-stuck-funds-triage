@@ -1,0 +1,30 @@
+{
+  "name": "wheres-my-money-stuck-funds-triage",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Triage console for stuck money transfers: a rules engine that names why each transfer is stuck, who owns it, and what the customer should be told.",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc -b --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "export:data": "tsx scripts/export-data.ts"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.20.4",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^4.3.4",
+    "tsx": "^4.23.15",
+    "typescript": "~5.6.3",
+    "vite": "^5.4.11",
+    "vitest": "^2.1.8"
+  }
+}
